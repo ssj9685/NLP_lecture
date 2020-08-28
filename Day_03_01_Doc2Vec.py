@@ -38,11 +38,11 @@ vocab = make_vocab()
 # ['neg/cv000_29416.txt', 'neg/cv001_19502.txt', ...]
 
 doc = nltk.corpus.movie_reviews.words('neg/cv000_29416.txt')
-# print(doc)
+#print(doc)
 # print(len(doc))     # 879
 # ['plot', ':', 'two', 'teen', 'couples', 'go', 'to', ...]
 
-# make_feature(doc, vocab)
+print(make_feature(doc, vocab))
 
 print(nltk.corpus.movie_reviews.categories())   # ['neg', 'pos']
 
