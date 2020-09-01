@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+from sklearn import preprocessing
 
 def make_data_1():
     x = [[0.,0.,0.,0.,0.,1.], #t
@@ -35,8 +36,16 @@ def make_data_2(origin):
 
     return x, y, np.array(idx2chr)
 
+def make_data_3(origin):
+    lb = preprocessing.LabelBinarizer()
+    word = lb.fit_transform(list(origin))
+    x = np.float32([word[:-1]])
+    y = np.argmax(word[1:],axis=1)
+    y = tf.constant(np.int32([y]))
+    return x, y, lb.classes_
+
 def rnn4(word):
-    x, y, vocab = make_data_2(word)
+    x, y, vocab = make_data_3(word)
 
     batch_size, seq_length, n_classes = x.shape
     print(x.shape)
@@ -94,4 +103,4 @@ def rnn4_3d():
 
     sess.close()
 
-rnn4('deep leraning')
+rnn4('tensor')

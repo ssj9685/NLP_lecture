@@ -23,8 +23,8 @@ def show_word2vec():
         token = [s.split() for s in text]
         #print(token)
 
-        embedding = gensim.models.Word2Vec(token, min_count=1, size=5, sg=True)
-        #print(embedding)
+        embedding = gensim.models.Word2Vec(token, min_count=1, size=3)
+        print(embedding)
         #print(embedding.wv['I'])
         #print(embedding.wv['you'])
 
@@ -32,7 +32,6 @@ def show_word2vec():
         embedding.save('data/word2vec.out')
     save()
     embedding = gensim.models.Word2Vec.load('data/word2vec.out')
-    print(embedding.wv['I'])
 
 show_word2vec()
 

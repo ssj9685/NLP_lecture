@@ -7,6 +7,8 @@ import gensim, nltk
 sents = nltk.corpus.movie_reviews.sents()
 model = gensim.models.Word2Vec(sents)
 
+#print(model.wv)
+
 #cos similarity
 print(model.wv.similarity('man','woman'))
 print(model.wv.similarity('male','female'))
